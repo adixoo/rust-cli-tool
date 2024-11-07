@@ -1,22 +1,8 @@
-use clap::Parser;
+use crate::garden::vegetables::Asparagus;
 
-/// Simple program to greet a person
-#[derive(Parser, Debug)]
-#[command(version, about, long_about = None)]
-struct Args {
-    /// Name of the person to greet
-    #[arg(short, long)]
-    name: String,
-
-    /// Number of times to greet
-    #[arg(short, long, default_value_t = 1)]
-    count: u8,
-}
+pub mod garden;
 
 fn main() {
-    let args = Args::parse();
-
-    for _ in 0..args.count {
-        println!("Hello {}!", args.name);
-    }
+    let plant = Asparagus {};
+    println!("I'm growing {plant:?}!");
 }
